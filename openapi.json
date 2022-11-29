@@ -1,0 +1,3626 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "backend-rrhh",
+    "version": "0.0.1",
+    "description": "backend-rrhh",
+    "contact": {
+      "name": "&lt;RicchardoHN&gt;",
+      "email": "ricchardo_acosta@hotmail.com"
+    }
+  },
+  "paths": {
+    "/competencias/count": {
+      "get": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "count",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Competencia model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Competencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Competencia>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CompetenciaController.count"
+      }
+    },
+    "/competencias/{id}/participante": {
+      "get": {
+        "x-controller-name": "CompetenciaParticipanteController",
+        "x-operation-name": "getParticipante",
+        "tags": [
+          "CompetenciaParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante belonging to Competencia",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Participante"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CompetenciaParticipanteController.getParticipante"
+      }
+    },
+    "/competencias/{id}": {
+      "put": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Competencia PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Competencia"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CompetenciaController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Competencia PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompetenciaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "CompetenciaController.updateById"
+      },
+      "get": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "findById",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Competencia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompetenciaWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Competencia.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CompetenciaController.findById"
+      },
+      "delete": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Competencia DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "CompetenciaController.deleteById"
+      }
+    },
+    "/competencias": {
+      "post": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "create",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Competencia model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Competencia"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCompetencia"
+              }
+            }
+          }
+        },
+        "operationId": "CompetenciaController.create"
+      },
+      "patch": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Competencia PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Competencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Competencia>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompetenciaPartial"
+              }
+            }
+          }
+        },
+        "operationId": "CompetenciaController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "CompetenciaController",
+        "x-operation-name": "find",
+        "tags": [
+          "CompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Competencia model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompetenciaWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Competencia.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "CompetenciaController.find"
+      }
+    },
+    "/examen/count": {
+      "get": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "count",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Examen model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Examen.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Examen>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ExamenController.count"
+      }
+    },
+    "/examen/{id}/participante": {
+      "get": {
+        "x-controller-name": "ExamenParticipanteController",
+        "x-operation-name": "getParticipante",
+        "tags": [
+          "ExamenParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante belonging to Examen",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Participante"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ExamenParticipanteController.getParticipante"
+      }
+    },
+    "/examen/{id}": {
+      "put": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Examen PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Examen"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ExamenController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Examen PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExamenPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ExamenController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Examen model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExamenWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Examen.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ExamenController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Examen DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ExamenController.deleteById"
+      }
+    },
+    "/examen": {
+      "post": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "create",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Examen model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Examen"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewExamen"
+              }
+            }
+          }
+        },
+        "operationId": "ExamenController.create"
+      },
+      "patch": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Examen PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Examen.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Examen>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExamenPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ExamenController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ExamenController",
+        "x-operation-name": "find",
+        "tags": [
+          "ExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Examen model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExamenWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Examen.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ExamenController.find"
+      }
+    },
+    "/participantes/count": {
+      "get": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "count",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Participante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Participante>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteController.count"
+      }
+    },
+    "/participantes/{id}/competencias": {
+      "post": {
+        "x-controller-name": "ParticipanteCompetenciaController",
+        "x-operation-name": "create",
+        "tags": [
+          "ParticipanteCompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Competencia"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewCompetenciaInParticipante"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteCompetenciaController.create"
+      },
+      "patch": {
+        "x-controller-name": "ParticipanteCompetenciaController",
+        "x-operation-name": "patch",
+        "tags": [
+          "ParticipanteCompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante.Competencia PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Competencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Competencia>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompetenciaPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteCompetenciaController.patch"
+      },
+      "get": {
+        "x-controller-name": "ParticipanteCompetenciaController",
+        "x-operation-name": "find",
+        "tags": [
+          "ParticipanteCompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Participante has many Competencia",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Competencia"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteCompetenciaController.find"
+      },
+      "delete": {
+        "x-controller-name": "ParticipanteCompetenciaController",
+        "x-operation-name": "delete",
+        "tags": [
+          "ParticipanteCompetenciaController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante.Competencia DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Competencia.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Competencia>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteCompetenciaController.delete"
+      }
+    },
+    "/participantes/{id}/examen": {
+      "post": {
+        "x-controller-name": "ParticipanteExamenController",
+        "x-operation-name": "create",
+        "tags": [
+          "ParticipanteExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Examen"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewExamenInParticipante"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteExamenController.create"
+      },
+      "patch": {
+        "x-controller-name": "ParticipanteExamenController",
+        "x-operation-name": "patch",
+        "tags": [
+          "ParticipanteExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante.Examen PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Examen.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Examen>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExamenPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteExamenController.patch"
+      },
+      "get": {
+        "x-controller-name": "ParticipanteExamenController",
+        "x-operation-name": "find",
+        "tags": [
+          "ParticipanteExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Participante has many Examen",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Examen"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteExamenController.find"
+      },
+      "delete": {
+        "x-controller-name": "ParticipanteExamenController",
+        "x-operation-name": "delete",
+        "tags": [
+          "ParticipanteExamenController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante.Examen DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Examen.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Examen>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteExamenController.delete"
+      }
+    },
+    "/participantes/{id}/vacantes": {
+      "post": {
+        "x-controller-name": "ParticipanteVacanteController",
+        "x-operation-name": "create",
+        "tags": [
+          "ParticipanteVacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacante"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacanteInParticipante"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteVacanteController.create"
+      },
+      "patch": {
+        "x-controller-name": "ParticipanteVacanteController",
+        "x-operation-name": "patch",
+        "tags": [
+          "ParticipanteVacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante.Vacante PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacante>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacantePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteVacanteController.patch"
+      },
+      "get": {
+        "x-controller-name": "ParticipanteVacanteController",
+        "x-operation-name": "find",
+        "tags": [
+          "ParticipanteVacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Participante has many Vacante",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vacante"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteVacanteController.find"
+      },
+      "delete": {
+        "x-controller-name": "ParticipanteVacanteController",
+        "x-operation-name": "delete",
+        "tags": [
+          "ParticipanteVacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante.Vacante DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacante>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteVacanteController.delete"
+      }
+    },
+    "/participantes/{id}": {
+      "put": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Participante PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Participante"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Participante PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParticipantePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ParticipanteController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParticipanteWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Participante.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Participante DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ParticipanteController.deleteById"
+      }
+    },
+    "/participantes": {
+      "post": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "create",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Participante"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewParticipante"
+              }
+            }
+          }
+        },
+        "operationId": "ParticipanteController.create"
+      },
+      "patch": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Participante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Participante>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParticipantePartial"
+              }
+            }
+          }
+        },
+        "operationId": "ParticipanteController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ParticipanteController",
+        "x-operation-name": "find",
+        "tags": [
+          "ParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Participante model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ParticipanteWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Participante.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ParticipanteController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/vacantes/count": {
+      "get": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "count",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacante model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacante>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacanteController.count"
+      }
+    },
+    "/vacantes/{id}/participante": {
+      "get": {
+        "x-controller-name": "VacanteParticipanteController",
+        "x-operation-name": "getParticipante",
+        "tags": [
+          "VacanteParticipanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Participante belonging to Vacante",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Participante"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VacanteParticipanteController.getParticipante"
+      }
+    },
+    "/vacantes/{id}": {
+      "put": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacante PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vacante"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacanteController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacante PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacantePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacanteController.updateById"
+      },
+      "get": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "findById",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VacanteWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacante.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacanteController.findById"
+      },
+      "delete": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacante DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VacanteController.deleteById"
+      }
+    },
+    "/vacantes": {
+      "post": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "create",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacante"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacante"
+              }
+            }
+          }
+        },
+        "operationId": "VacanteController.create"
+      },
+      "patch": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacante PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacante>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacantePartial"
+              }
+            }
+          }
+        },
+        "operationId": "VacanteController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "VacanteController",
+        "x-operation-name": "find",
+        "tags": [
+          "VacanteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Vacante model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VacanteWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacante.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacanteController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Participante": {
+        "title": "Participante",
+        "type": "object",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "idParticipante": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "apellido": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "ciudad": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "idParticipante",
+          "nombre",
+          "apellido",
+          "direccion",
+          "ciudad"
+        ],
+        "additionalProperties": false
+      },
+      "Competencia": {
+        "title": "Competencia",
+        "type": "object",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "escolaridad": {
+            "type": "string"
+          },
+          "idiomas": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "escolaridad",
+          "idiomas",
+          "puntaje"
+        ],
+        "additionalProperties": false
+      },
+      "NewCompetencia": {
+        "title": "NewCompetencia",
+        "type": "object",
+        "description": "(tsType: Omit<Competencia, 'idPlaza'>, schemaOptions: { title: 'NewCompetencia', exclude: [ 'idPlaza' ] })",
+        "properties": {
+          "escolaridad": {
+            "type": "string"
+          },
+          "idiomas": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "escolaridad",
+          "idiomas",
+          "puntaje"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Competencia, 'idPlaza'>"
+      },
+      "VacanteWithRelations": {
+        "title": "VacanteWithRelations",
+        "type": "object",
+        "description": "(tsType: VacanteWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "nombrePlaza": {
+            "type": "string"
+          },
+          "sueldo": {
+            "type": "number"
+          },
+          "jefe": {
+            "type": "string"
+          },
+          "ubicacion": {
+            "type": "string"
+          },
+          "fechaInicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinal": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          },
+          "participante": {
+            "$ref": "#/components/schemas/ParticipanteWithRelations"
+          }
+        },
+        "required": [
+          "nombrePlaza",
+          "sueldo",
+          "jefe",
+          "ubicacion",
+          "fechaInicio",
+          "fechaFinal"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "VacanteWithRelations"
+      },
+      "ExamenWithRelations": {
+        "title": "ExamenWithRelations",
+        "type": "object",
+        "description": "(tsType: ExamenWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "idParticipante": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          },
+          "participante": {
+            "$ref": "#/components/schemas/ParticipanteWithRelations"
+          }
+        },
+        "required": [
+          "idParticipante",
+          "puntaje",
+          "fecha"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ExamenWithRelations"
+      },
+      "ParticipanteWithRelations": {
+        "title": "ParticipanteWithRelations",
+        "type": "object",
+        "description": "(tsType: ParticipanteWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "idParticipante": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "apellido": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "ciudad": {
+            "type": "string"
+          },
+          "vacantes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VacanteWithRelations"
+            }
+          },
+          "examen": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExamenWithRelations"
+            }
+          },
+          "competencias": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompetenciaWithRelations"
+            }
+          }
+        },
+        "required": [
+          "idParticipante",
+          "nombre",
+          "apellido",
+          "direccion",
+          "ciudad"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ParticipanteWithRelations"
+      },
+      "CompetenciaWithRelations": {
+        "title": "CompetenciaWithRelations",
+        "type": "object",
+        "description": "(tsType: CompetenciaWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "escolaridad": {
+            "type": "string"
+          },
+          "idiomas": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "participanteId": {
+            "type": "string"
+          },
+          "participante": {
+            "$ref": "#/components/schemas/ParticipanteWithRelations"
+          }
+        },
+        "required": [
+          "escolaridad",
+          "idiomas",
+          "puntaje"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "CompetenciaWithRelations"
+      },
+      "CompetenciaPartial": {
+        "title": "CompetenciaPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Competencia>, schemaOptions: { partial: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "escolaridad": {
+            "type": "string"
+          },
+          "idiomas": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Competencia>"
+      },
+      "Examen": {
+        "title": "Examen",
+        "type": "object",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "idParticipante": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "idParticipante",
+          "puntaje",
+          "fecha"
+        ],
+        "additionalProperties": false
+      },
+      "NewExamen": {
+        "title": "NewExamen",
+        "type": "object",
+        "description": "(tsType: Omit<Examen, 'idPlaza'>, schemaOptions: { title: 'NewExamen', exclude: [ 'idPlaza' ] })",
+        "properties": {
+          "idParticipante": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "idParticipante",
+          "puntaje",
+          "fecha"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Examen, 'idPlaza'>"
+      },
+      "ExamenPartial": {
+        "title": "ExamenPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Examen>, schemaOptions: { partial: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "idParticipante": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Examen>"
+      },
+      "NewCompetenciaInParticipante": {
+        "title": "NewCompetenciaInParticipante",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Competencia, 'idPlaza'>, 'participanteId'>, schemaOptions: { title: 'NewCompetenciaInParticipante', exclude: [ 'idPlaza' ], optional: [ 'participanteId' ] })",
+        "properties": {
+          "escolaridad": {
+            "type": "string"
+          },
+          "idiomas": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "escolaridad",
+          "idiomas",
+          "puntaje"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Competencia, 'idPlaza'>, 'participanteId'>"
+      },
+      "NewExamenInParticipante": {
+        "title": "NewExamenInParticipante",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Examen, 'idPlaza'>, 'participanteId'>, schemaOptions: { title: 'NewExamenInParticipante', exclude: [ 'idPlaza' ], optional: [ 'participanteId' ] })",
+        "properties": {
+          "idParticipante": {
+            "type": "string"
+          },
+          "puntaje": {
+            "type": "number"
+          },
+          "fecha": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "idParticipante",
+          "puntaje",
+          "fecha"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Examen, 'idPlaza'>, 'participanteId'>"
+      },
+      "Vacante": {
+        "title": "Vacante",
+        "type": "object",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "nombrePlaza": {
+            "type": "string"
+          },
+          "sueldo": {
+            "type": "number"
+          },
+          "jefe": {
+            "type": "string"
+          },
+          "ubicacion": {
+            "type": "string"
+          },
+          "fechaInicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinal": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombrePlaza",
+          "sueldo",
+          "jefe",
+          "ubicacion",
+          "fechaInicio",
+          "fechaFinal"
+        ],
+        "additionalProperties": false
+      },
+      "NewVacanteInParticipante": {
+        "title": "NewVacanteInParticipante",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Vacante, 'idPlaza'>, 'participanteId'>, schemaOptions: { title: 'NewVacanteInParticipante', exclude: [ 'idPlaza' ], optional: [ 'participanteId' ] })",
+        "properties": {
+          "nombrePlaza": {
+            "type": "string"
+          },
+          "sueldo": {
+            "type": "number"
+          },
+          "jefe": {
+            "type": "string"
+          },
+          "ubicacion": {
+            "type": "string"
+          },
+          "fechaInicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinal": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombrePlaza",
+          "sueldo",
+          "jefe",
+          "ubicacion",
+          "fechaInicio",
+          "fechaFinal"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Vacante, 'idPlaza'>, 'participanteId'>"
+      },
+      "VacantePartial": {
+        "title": "VacantePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Vacante>, schemaOptions: { partial: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "nombrePlaza": {
+            "type": "string"
+          },
+          "sueldo": {
+            "type": "number"
+          },
+          "jefe": {
+            "type": "string"
+          },
+          "ubicacion": {
+            "type": "string"
+          },
+          "fechaInicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinal": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Vacante>"
+      },
+      "NewParticipante": {
+        "title": "NewParticipante",
+        "type": "object",
+        "description": "(tsType: Omit<Participante, 'idPlaza'>, schemaOptions: { title: 'NewParticipante', exclude: [ 'idPlaza' ] })",
+        "properties": {
+          "idParticipante": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "apellido": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "ciudad": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "idParticipante",
+          "nombre",
+          "apellido",
+          "direccion",
+          "ciudad"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Participante, 'idPlaza'>"
+      },
+      "ParticipantePartial": {
+        "title": "ParticipantePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Participante>, schemaOptions: { partial: true })",
+        "properties": {
+          "idPlaza": {
+            "type": "string"
+          },
+          "idParticipante": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "apellido": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "ciudad": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Participante>"
+      },
+      "NewVacante": {
+        "title": "NewVacante",
+        "type": "object",
+        "description": "(tsType: Omit<Vacante, 'idPlaza'>, schemaOptions: { title: 'NewVacante', exclude: [ 'idPlaza' ] })",
+        "properties": {
+          "nombrePlaza": {
+            "type": "string"
+          },
+          "sueldo": {
+            "type": "number"
+          },
+          "jefe": {
+            "type": "string"
+          },
+          "ubicacion": {
+            "type": "string"
+          },
+          "fechaInicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fechaFinal": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "participanteId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombrePlaza",
+          "sueldo",
+          "jefe",
+          "ubicacion",
+          "fechaInicio",
+          "fechaFinal"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Vacante, 'idPlaza'>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Competencia.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Competencia.ScopeFilter"
+      },
+      "Competencia.IncludeFilter.Items": {
+        "title": "Competencia.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Competencia.ScopeFilter"
+          }
+        }
+      },
+      "Competencia.Filter": {
+        "type": "object",
+        "title": "Competencia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "escolaridad": {
+                    "type": "boolean"
+                  },
+                  "idiomas": {
+                    "type": "boolean"
+                  },
+                  "puntaje": {
+                    "type": "boolean"
+                  },
+                  "participanteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "escolaridad",
+                    "idiomas",
+                    "puntaje",
+                    "participanteId"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Competencia.Fields"
+          },
+          "include": {
+            "title": "Competencia.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Competencia.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Competencia>"
+      },
+      "Competencia.Filter1": {
+        "type": "object",
+        "title": "Competencia.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Competencia.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "escolaridad": {
+                    "type": "boolean"
+                  },
+                  "idiomas": {
+                    "type": "boolean"
+                  },
+                  "puntaje": {
+                    "type": "boolean"
+                  },
+                  "participanteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "escolaridad",
+                    "idiomas",
+                    "puntaje",
+                    "participanteId"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Competencia.Fields"
+          },
+          "include": {
+            "title": "Competencia.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Competencia.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Competencia>"
+      },
+      "Examen.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Examen.ScopeFilter"
+      },
+      "Examen.IncludeFilter.Items": {
+        "title": "Examen.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Examen.ScopeFilter"
+          }
+        }
+      },
+      "Examen.Filter": {
+        "type": "object",
+        "title": "Examen.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "idParticipante": {
+                    "type": "boolean"
+                  },
+                  "puntaje": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "participanteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "idParticipante",
+                    "puntaje",
+                    "fecha",
+                    "participanteId"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Examen.Fields"
+          },
+          "include": {
+            "title": "Examen.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Examen.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Examen>"
+      },
+      "Examen.Filter1": {
+        "type": "object",
+        "title": "Examen.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Examen.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "idParticipante": {
+                    "type": "boolean"
+                  },
+                  "puntaje": {
+                    "type": "boolean"
+                  },
+                  "fecha": {
+                    "type": "boolean"
+                  },
+                  "participanteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "idParticipante",
+                    "puntaje",
+                    "fecha",
+                    "participanteId"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Examen.Fields"
+          },
+          "include": {
+            "title": "Examen.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Examen.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Examen>"
+      },
+      "Participante.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Participante.ScopeFilter"
+      },
+      "Participante.IncludeFilter.Items": {
+        "title": "Participante.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Participante.ScopeFilter"
+          }
+        }
+      },
+      "Participante.Filter": {
+        "type": "object",
+        "title": "Participante.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "idParticipante": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "apellido": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  },
+                  "ciudad": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "idParticipante",
+                    "nombre",
+                    "apellido",
+                    "direccion",
+                    "ciudad"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Participante.Fields"
+          },
+          "include": {
+            "title": "Participante.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Participante.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Participante>"
+      },
+      "Participante.Filter1": {
+        "type": "object",
+        "title": "Participante.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Participante.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "idParticipante": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "apellido": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  },
+                  "ciudad": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "idParticipante",
+                    "nombre",
+                    "apellido",
+                    "direccion",
+                    "ciudad"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Participante.Fields"
+          },
+          "include": {
+            "title": "Participante.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Participante.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Participante>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Vacante.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Vacante.ScopeFilter"
+      },
+      "Vacante.IncludeFilter.Items": {
+        "title": "Vacante.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Vacante.ScopeFilter"
+          }
+        }
+      },
+      "Vacante.Filter": {
+        "type": "object",
+        "title": "Vacante.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "nombrePlaza": {
+                    "type": "boolean"
+                  },
+                  "sueldo": {
+                    "type": "boolean"
+                  },
+                  "jefe": {
+                    "type": "boolean"
+                  },
+                  "ubicacion": {
+                    "type": "boolean"
+                  },
+                  "fechaInicio": {
+                    "type": "boolean"
+                  },
+                  "fechaFinal": {
+                    "type": "boolean"
+                  },
+                  "participanteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "nombrePlaza",
+                    "sueldo",
+                    "jefe",
+                    "ubicacion",
+                    "fechaInicio",
+                    "fechaFinal",
+                    "participanteId"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacante.Fields"
+          },
+          "include": {
+            "title": "Vacante.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vacante.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacante>"
+      },
+      "Vacante.Filter1": {
+        "type": "object",
+        "title": "Vacante.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Vacante.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "idPlaza": {
+                    "type": "boolean"
+                  },
+                  "nombrePlaza": {
+                    "type": "boolean"
+                  },
+                  "sueldo": {
+                    "type": "boolean"
+                  },
+                  "jefe": {
+                    "type": "boolean"
+                  },
+                  "ubicacion": {
+                    "type": "boolean"
+                  },
+                  "fechaInicio": {
+                    "type": "boolean"
+                  },
+                  "fechaFinal": {
+                    "type": "boolean"
+                  },
+                  "participanteId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "idPlaza",
+                    "nombrePlaza",
+                    "sueldo",
+                    "jefe",
+                    "ubicacion",
+                    "fechaInicio",
+                    "fechaFinal",
+                    "participanteId"
+                  ],
+                  "example": "idPlaza"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacante.Fields"
+          },
+          "include": {
+            "title": "Vacante.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vacante.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacante>"
+      }
+    }
+  }
+}
