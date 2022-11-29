@@ -37,7 +37,7 @@ export class CompetenciaController {
         'application/json': {
           schema: getModelSchemaRef(Competencia, {
             title: 'NewCompetencia',
-            exclude: ['id'],
+            exclude: ['idPlaza'],
           }),
         },
       },

@@ -37,7 +37,7 @@ export class ExamenController {
         'application/json': {
           schema: getModelSchemaRef(Examen, {
             title: 'NewExamen',
-            exclude: ['id'],
+            exclude: ['idPlaza'],
           }),
         },
       },

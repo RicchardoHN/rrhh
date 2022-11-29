@@ -37,7 +37,7 @@ export class ParticipanteController {
         'application/json': {
           schema: getModelSchemaRef(Participante, {
             title: 'NewParticipante',
-            exclude: ['id'],
+            exclude: ['idPlaza'],
           }),
         },
       },

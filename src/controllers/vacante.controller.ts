@@ -37,7 +37,7 @@ export class VacanteController {
         'application/json': {
           schema: getModelSchemaRef(Vacante, {
             title: 'NewVacante',
-            exclude: ['id'],
+            exclude: ['idPlaza'],
           }),
         },
       },
